@@ -1,0 +1,25 @@
+{
+  "name": "mcp-client",
+  "version": "1.0.0",
+  "description": "JavaScript implement of MCP Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lt502676921/mcp-client-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lt502676921/mcp-client-js/issues"
+  },
+  "homepage": "https://github.com/lt502676921/mcp-client-js#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.4",
+    "dotenv": "^16.5.0",
+    "openai": "^4.100.0"
+  }
+}
