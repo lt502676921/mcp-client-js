@@ -10,7 +10,6 @@ class MCPClient {
     this.openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
       baseURL: process.env.OPENAI_BASE_URL,
-      timeout: 300000
     });
     this.client = new Client({
       name: 'mcp-javascript-client',
@@ -29,7 +28,6 @@ class MCPClient {
     const serverParams = {
       command,
       args: [serverScriptPath],
-      timeout: 300000
     };
 
     const transport = new StdioClientTransport(serverParams);
@@ -71,7 +69,7 @@ class MCPClient {
       enable_thinking: false,
     });
 
-    let finalText = [];
+    let finalText = ['Assistant:'];
     let responseMessage = openaiResponse.choices[0].message;
     const toolResults = [];
 
@@ -86,9 +84,9 @@ class MCPClient {
         // Execute tool call
         const toolResult = await this.client.callTool({ name: toolName, arguments: toolArgs });
         toolResults.push({ call: toolName, result: toolResult });
-        finalText.push(`[Calling tool ${toolName} with args ${JSON.stringify(toolArgs)}]`);
+        console.log(`🔧[Calling tool ${toolName} with args ${JSON.stringify(toolArgs)}]`);
 
-        console.log(`Tool ${toolName} result:`, toolResult);
+        console.log(`🔧Tool ${toolName} result:`, toolResult);
 
         // Append tool result to messages
         messages.push({
