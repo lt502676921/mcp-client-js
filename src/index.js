@@ -92,6 +92,7 @@ class MCPClient {
         messages.push({
           role: 'assistant',
           content: responseMessage.content || '',
+          tool_calls: responseMessage.tool_calls,
         });
         messages.push({
           role: 'tool',
